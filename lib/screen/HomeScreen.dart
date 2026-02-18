@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:memory_card/screen/GameScreen.dart';
 import 'package:memory_card/widgets/HomeButton.dart';
 import 'package:memory_card/widgets/SettingsDialog.dart';
 import 'package:provider/provider.dart';
@@ -38,27 +39,31 @@ class HomeScreen extends StatelessWidget {
                   spacing: 15,
                   children: [
                     HomeButton(
-                      text: '2x2',
+                      text: '3x2',
                       callback: () {
                         homeProvider.buttonClickSound();
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => GameScreen(rows: 3, columns: 2),));
                       },
                     ),
                     HomeButton(
-                      text: '4x4',
+                      text: '5x4',
                       callback: () {
                         homeProvider.buttonClickSound();
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => GameScreen(rows: 5, columns: 4),));
                       },
                     ),
                     HomeButton(
                       text: '6x6',
                       callback: () {
                         homeProvider.buttonClickSound();
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => GameScreen(rows: 6, columns: 6),));
                       },
                     ),
                     HomeButton(
                       text: '8x8',
                       callback: () {
                         homeProvider.buttonClickSound();
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => GameScreen(rows: 8, columns: 8),));
                       },
                     ),
                     HomeButton(

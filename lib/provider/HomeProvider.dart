@@ -6,7 +6,6 @@ class HomeProvider extends ChangeNotifier {
   bool _music = true;
 
   bool get sound => _sound;
-
   bool get music => _music;
 
   set sound(bool val) {

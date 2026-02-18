@@ -6,9 +6,23 @@ class MyButton extends StatelessWidget {
   String text;
   double fontSize;
   double width;
+  bool isIcon;
+  IconData iconData;
+  Color iconColor;
   double height;
   VoidCallback callback;
-  MyButton({super.key,required this.callback,required this.text,this.fontSize=28,this.width=120,this.height=50});
+
+  MyButton({
+    super.key,
+    this.iconData = Icons.star_rounded,
+    this.isIcon = false,
+    this.iconColor = Colors.yellow,
+    required this.callback,
+    required this.text,
+    this.fontSize = 28,
+    this.width = 120,
+    this.height = 50,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +48,16 @@ class MyButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
             border: Border.all(color: Colors.black54, width: 1.5),
           ),
-          child: MyText(text: text, fontSize: fontSize),
+          child: Row(
+            mainAxisAlignment: .center,
+            children: [
+              if (isIcon) ...[
+                Icon(iconData, color: iconColor),
+                if (text.isNotEmpty) SizedBox(width: 5),
+              ],
+              MyText(text: text, fontSize: fontSize),
+            ],
+          ),
         ),
       ),
     );

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:memory_card/provider/HomeProvider.dart';
 import 'package:memory_card/widgets/MyButton.dart';
 import 'package:memory_card/widgets/MyText.dart';
@@ -32,8 +31,6 @@ void showSettingsDialog({required BuildContext context}) {
           children: [
             MyText(text: "Settings", fontSize: 38),
             SizedBox(height: 20),
-
-            // Example Switch
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
