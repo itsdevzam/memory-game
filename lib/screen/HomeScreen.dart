@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:memory_card/widgets/HomeButton.dart';
+import 'package:memory_card/widgets/SettingsDialog.dart';
 import 'package:provider/provider.dart';
 
 import '../provider/HomeProvider.dart';
@@ -36,21 +37,38 @@ class HomeScreen extends StatelessWidget {
                 child: Column(
                   spacing: 15,
                   children: [
-                    HomeButton(text: '2x2', callback: (){
-                      homeProvider.buttonClickSound();
-                    }),
-                    HomeButton(text: '4x4', callback: (){
-                      homeProvider.buttonClickSound();
-                    }),
-                    HomeButton(text: '6x6', callback: (){
-                      homeProvider.buttonClickSound();
-                    }),
-                    HomeButton(text: '8x8', callback: (){
-                      homeProvider.buttonClickSound();
-                    }),
-                    HomeButton(text: 'Settings',showIcon: false, callback: (){
-                      homeProvider.buttonClickSound();
-                    }),
+                    HomeButton(
+                      text: '2x2',
+                      callback: () {
+                        homeProvider.buttonClickSound();
+                      },
+                    ),
+                    HomeButton(
+                      text: '4x4',
+                      callback: () {
+                        homeProvider.buttonClickSound();
+                      },
+                    ),
+                    HomeButton(
+                      text: '6x6',
+                      callback: () {
+                        homeProvider.buttonClickSound();
+                      },
+                    ),
+                    HomeButton(
+                      text: '8x8',
+                      callback: () {
+                        homeProvider.buttonClickSound();
+                      },
+                    ),
+                    HomeButton(
+                      text: 'Settings',
+                      showIcon: false,
+                      callback: () {
+                        homeProvider.buttonClickSound();
+                        showSettingsDialog(context: context);
+                      },
+                    ),
                   ],
                 ),
               ),
