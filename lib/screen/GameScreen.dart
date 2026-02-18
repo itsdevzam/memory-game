@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:memory_card/provider/GameProvider.dart';
 import 'package:memory_card/utils/Constants.dart';
+import 'package:memory_card/widgets/FlipCard.dart';
 import 'package:memory_card/widgets/MyButton.dart';
 import 'package:provider/provider.dart';
 
-class GameScreen extends StatelessWidget {
+class GameScreen extends StatefulWidget {
   int rows;
   int columns;
+
   GameScreen({super.key, required this.rows, required this.columns});
 
+  @override
+  State<GameScreen> createState() => _GameScreenState();
+}
+
+class _GameScreenState extends State<GameScreen> {
   @override
   Widget build(BuildContext context) {
     final gameProvider = Provider.of<GameProvider>(context);
@@ -75,39 +82,92 @@ class GameScreen extends StatelessWidget {
                 ],
               ),
             ),
+
             ///Body
             Expanded(
               child: Padding(
-                padding: EdgeInsets.only(top: columns > 4 ? 0 : 50),
+                padding: EdgeInsets.only(top: widget.columns > 4 ? 0 : 50),
                 child: GridView.builder(
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   shrinkWrap: true,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: columns >= 4 ? 4 : columns,
+                    crossAxisCount: widget.columns >= 4 ? 4 : widget.columns,
                     crossAxisSpacing: 5,
                     mainAxisSpacing: 5,
                   ),
-                  itemCount: rows * columns,
+                  itemCount: widget.rows * widget.columns,
                   itemBuilder: (context, index) {
                     return InkWell(
-                      onTap: ()=> gameProvider.flipSound(context: context),
-                      child: Card(
-                        elevation: 3,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [
-                                Colors.white.withAlpha(150),
-                                Colors.lightBlue.withOpacity(0.8),
-                              ],
-                              begin: AlignmentGeometry.topCenter,
-                              end: AlignmentGeometry.bottomCenter,
+                      onTap: () =>
+                          gameProvider.flipCard(index: index, context: context),
+                      child: Consumer<GameProvider>(
+                        builder: (context, gameProvider, child) {
+                          return FlipCard(
+                            isFlipped:
+                                gameProvider.cardList[index].isFlip! ||
+                                gameProvider.cardList[index].isMatch!,
+                            front: Card(
+                              elevation: 3,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Colors.white.withAlpha(150),
+                                      Colors.lightBlue.withOpacity(0.8),
+                                    ],
+                                    begin: AlignmentGeometry.topCenter,
+                                    end: AlignmentGeometry.bottomCenter,
+                                  ),
+                                  borderRadius: BorderRadius.circular(12),
+                                  border: Border.all(
+                                    color: Colors.black54,
+                                    width: 1,
+                                  ),
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadiusGeometry.circular(
+                                    10,
+                                  ),
+                                  child: Image.asset(
+                                    gameProvider.cardList[index].image!,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                // child: Image.asset("assets/icons/card.png"),
+                              ),
                             ),
-                            borderRadius: BorderRadius.circular(12),
-                            border: Border.all(color: Colors.black54, width: 1),
-                          ),
-                          child: Image.asset("assets/icons/card.png"),
-                        ),
+                            back: Card(
+                              elevation: 3,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Colors.white.withAlpha(150),
+                                      Colors.lightBlue.withOpacity(0.8),
+                                    ],
+                                    begin: AlignmentGeometry.topCenter,
+                                    end: AlignmentGeometry.bottomCenter,
+                                  ),
+                                  borderRadius: BorderRadius.circular(12),
+                                  border: Border.all(
+                                    color: Colors.black54,
+                                    width: 1,
+                                  ),
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadiusGeometry.circular(
+                                    10,
+                                  ),
+                                  child: Image.asset(
+                                    "assets/icons/card.png",
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                                // child: Image.asset("assets/icons/card.png"),
+                              ),
+                            ),
+                          );
+                        },
                       ),
                     );
                   },
@@ -117,6 +177,16 @@ class GameScreen extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    context.read<GameProvider>().buildCardList(
+      rows: widget.rows,
+      columns: widget.columns,
     );
   }
 }
