@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:memory_card/provider/HomeProvider.dart';
 import 'package:memory_card/widgets/MyButton.dart';
 import 'package:memory_card/widgets/MyText.dart';
+import 'package:provider/provider.dart';
 
 void showSettingsDialog({required BuildContext context}) {
   showGeneralDialog(
@@ -36,7 +38,16 @@ void showSettingsDialog({required BuildContext context}) {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 MyText(text: "Sound", fontSize: 30),
-                Switch(value: false, onChanged: (val) {}),
+                Consumer<HomeProvider>(
+                  builder: (context, homeProvider, child) {
+                    return Switch(
+                      activeThumbColor: Colors.lightBlue,
+                      activeTrackColor: Colors.white,
+                      value: homeProvider.sound,
+                      onChanged: (val) => homeProvider.sound = val,
+                    );
+                  },
+                ),
               ],
             ),
 
@@ -45,11 +56,15 @@ void showSettingsDialog({required BuildContext context}) {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 MyText(text: "Music", fontSize: 30),
-                Switch(
-                  value: true,
-                  onChanged: (val) {},
-                  activeThumbColor: Colors.lightBlue,
-                  activeTrackColor: Colors.white,
+                Consumer<HomeProvider>(
+                  builder: (context, homeProvider, child) {
+                    return Switch(
+                      activeThumbColor: Colors.lightBlue,
+                      activeTrackColor: Colors.white,
+                      value: homeProvider.music,
+                      onChanged: (val) => homeProvider.music = val,
+                    );
+                  },
                 ),
               ],
             ),
