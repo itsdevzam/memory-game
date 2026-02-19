@@ -51,35 +51,37 @@ class _GameScreenState extends State<GameScreen> {
               ),
               width: Constants.getWidth(context),
               height: 120,
-              child: Row(
-                mainAxisAlignment: .spaceEvenly,
-                children: [
-                  MyButton(
-                    callback: () {},
-                    text: "",
-                    width: 50,
-                    iconData: Icons.pause,
-                    isIcon: true,
-                    iconColor: Colors.black54,
-                  ),
-                  MyButton(
-                    callback: () {},
-                    iconData: Icons.star_rounded,
-                    text: "100",
-                    width: 150,
-                    fontSize: 24,
-                    isIcon: true,
-                  ),
-                  MyButton(
-                    callback: () {},
-                    text: "10",
-                    width: 100,
-                    iconData: Icons.timer,
-                    isIcon: true,
-                    fontSize: 22,
-                    iconColor: Colors.black54,
-                  ),
-                ],
+              child: Consumer<GameProvider>(
+                builder: (context, gameProvider, child) => Row(
+                  mainAxisAlignment: .spaceEvenly,
+                  children: [
+                    MyButton(
+                      callback: () {},
+                      text: "",
+                      width: 50,
+                      iconData: Icons.pause,
+                      isIcon: true,
+                      iconColor: Colors.black54,
+                    ),
+                    MyButton(
+                      callback: () {},
+                      iconData: Icons.star_rounded,
+                      text: gameProvider.userCoins.toString(),
+                      width: 150,
+                      fontSize: 24,
+                      isIcon: true,
+                    ),
+                    MyButton(
+                      callback: () {},
+                      text: gameProvider.userLives.toString(),
+                      width: 100,
+                      iconData: Icons.favorite,
+                      isIcon: true,
+                      fontSize: 22,
+                      iconColor: Colors.redAccent,
+                    ),
+                  ],
+                ),
               ),
             ),
 

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:memory_card/provider/GameProvider.dart';
 import 'package:memory_card/provider/HomeProvider.dart';
 import 'package:memory_card/provider/SplashProvider.dart';
-import 'package:memory_card/screen/GameScreen.dart';
 import 'package:memory_card/screen/HomeScreen.dart';
 import 'package:memory_card/screen/SplashScreen.dart';
 import 'package:memory_card/utils/Constants.dart';
