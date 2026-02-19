@@ -1,10 +1,14 @@
+
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:memory_card/provider/HomeProvider.dart';
-import 'package:memory_card/widgets/MyButton.dart';
-import 'package:memory_card/widgets/MyText.dart';
 import 'package:provider/provider.dart';
 
-void showSettingsDialog({required BuildContext context}) {
+import '../provider/HomeProvider.dart';
+import 'MyButton.dart';
+import 'MyText.dart';
+
+void showResumeDialog({required BuildContext context}){
   showGeneralDialog(
     context: context,
     barrierDismissible: true,
@@ -29,7 +33,7 @@ void showSettingsDialog({required BuildContext context}) {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            MyText(text: "Settings", fontSize: 38),
+            MyText(text: "Resume", fontSize: 38),
             SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -48,7 +52,7 @@ void showSettingsDialog({required BuildContext context}) {
               ],
             ),
 
-            SizedBox(height: 10),
+            // SizedBox(height: 10),
             // Row(
             //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
             //   children: [
@@ -66,13 +70,13 @@ void showSettingsDialog({required BuildContext context}) {
             //   ],
             // ),
             SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                MyButton(text: "Rate Us", callback: () {}),
-                MyButton(text: "Share", callback: () {}),
-              ],
-            ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //   children: [
+            //     MyButton(text: "Rate Us", callback: () {}),
+            //     MyButton(text: "Share", callback: () {}),
+            //   ],
+            // ),
             SizedBox(height: 20),
             MyButton(text: "Close", callback: () => Navigator.pop(context)),
           ],

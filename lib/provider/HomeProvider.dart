@@ -1,7 +1,6 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:memory_card/widgets/MyText.dart';
 import '../screen/GameScreen.dart';
 
 class HomeProvider extends ChangeNotifier {
@@ -35,6 +34,12 @@ class HomeProvider extends ChangeNotifier {
     }
   }
 
+  void musicSound() async {
+    if (_music) {
+      await _player.play(AssetSource('audio/music.mp3'));
+    }
+  }
+
   void setInitialValues() {
     selectCustomRow = 2;
     selectCustomColumn = 2;
@@ -64,4 +69,5 @@ class HomeProvider extends ChangeNotifier {
       );
     }
   }
+
 }

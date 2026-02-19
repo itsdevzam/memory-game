@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:memory_card/provider/GameProvider.dart';
 import 'package:memory_card/provider/HomeProvider.dart';
 import 'package:provider/provider.dart';
 
