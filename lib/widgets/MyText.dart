@@ -15,7 +15,8 @@ class MyText extends StatelessWidget {
         if(isOutline)
         Text(
           text,
-          style: GoogleFonts.gamjaFlower(
+          style: TextStyle(
+            fontFamily: 'flower',
             fontSize: fontSize,
             fontWeight: FontWeight.bold,
             letterSpacing: letterSpacing,
@@ -27,7 +28,8 @@ class MyText extends StatelessWidget {
         ),
         Text(
           text,
-          style: GoogleFonts.gamjaFlower(
+          style: TextStyle(
+            fontFamily: 'flower',
             fontSize: fontSize,
             fontWeight: FontWeight.bold,
             letterSpacing: letterSpacing,

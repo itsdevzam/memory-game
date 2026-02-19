@@ -50,7 +50,8 @@ class HomeButton extends StatelessWidget {
                   children: [
                     Text(
                       text,
-                      style: GoogleFonts.gamjaFlower(
+                      style: TextStyle(
+                        fontFamily: 'flower',
                         fontSize: 48,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 2,
@@ -62,7 +63,8 @@ class HomeButton extends StatelessWidget {
                     ),
                     Text(
                       text,
-                      style: GoogleFonts.gamjaFlower(
+                      style: TextStyle(
+                        fontFamily: 'flower',
                         fontSize: 48,
                         letterSpacing: 2,
                         fontWeight: FontWeight.bold,
