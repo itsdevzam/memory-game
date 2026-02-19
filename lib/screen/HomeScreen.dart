@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:memory_card/screen/GameScreen.dart';
 import 'package:memory_card/widgets/HomeButton.dart';
 import 'package:memory_card/widgets/SettingsDialog.dart';
+import 'package:memory_card/widgets/showCustomDialog.dart';
 import 'package:provider/provider.dart';
 
 import '../provider/HomeProvider.dart';
@@ -46,24 +47,25 @@ class HomeScreen extends StatelessWidget {
                       },
                     ),
                     HomeButton(
-                      text: '5x4',
+                      text: '4x3',
                       callback: () {
                         homeProvider.buttonClickSound();
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => GameScreen(rows: 5, columns: 4),));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => GameScreen(rows: 4, columns: 3),));
                       },
                     ),
                     HomeButton(
-                      text: '6x6',
+                      text: '6x4',
                       callback: () {
                         homeProvider.buttonClickSound();
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => GameScreen(rows: 6, columns: 6),));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => GameScreen(rows: 6, columns: 4),));
                       },
                     ),
                     HomeButton(
-                      text: '8x8',
+                      text: 'Custom',
                       callback: () {
                         homeProvider.buttonClickSound();
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => GameScreen(rows: 8, columns: 8),));
+                        homeProvider.setInitialValues();
+                        showCustomDialog(context: context);
                       },
                     ),
                     HomeButton(
