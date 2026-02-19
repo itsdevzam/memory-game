@@ -20,27 +20,27 @@ Match pairs, manage lives, earn coins, and challenge your memory skills!
 
 ## 🖼️ Screenshots
 
-### 1️⃣ Home Screen
+### 1️⃣ 
 ![Home](https://github.com/itsdevzam/memory-game/blob/main/assets/images/1.png)
 
 ---
 
-### 2️⃣ Game Screen
+### 2️⃣
 ![Game](https://github.com/itsdevzam/memory-game/blob/main/assets/images/2.png)
 
 ---
 
-### 3️⃣ Win Dialog
+### 3️⃣
 ![Win](https://github.com/itsdevzam/memory-game/blob/main/assets/images/3.png)
 
 ---
 
-### 4️⃣ Settings Dialog
+### 4️⃣ 
 ![Settings](https://github.com/itsdevzam/memory-game/blob/main/assets/images/4.png)
 
 ---
 
-### 5️⃣ Custom Mode
+### 5️⃣ 
 ![Custom](https://github.com/itsdevzam/memory-game/blob/main/assets/images/5.png)
 
 ---
