@@ -109,7 +109,7 @@ class GameProvider extends ChangeNotifier {
         cardList[index].isMatch = true;
         openCardIndex = null;
         addCoin();
-        buildUserLives(lives: userLives + 1, context: context);
+        // buildUserLives(lives: userLives + 1, context: context);
         if (isGameCompleted) {
           winSound(context: context);
           resultDialog(context: context, isCompleted: true, coins: userCoins);
